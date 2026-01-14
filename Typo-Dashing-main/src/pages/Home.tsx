@@ -23,9 +23,9 @@ const Home = () => {
   return (
     <Layout>
       <div className="pt-12 pb-8 px-4 flex items-center justify-center min-h-[calc(100vh-60px)]">
-        <div className="w-full max-w-2xl space-y-6 sm:space-y-8">
+        <div className="w-full max-w-4xl space-y-6 sm:space-y-8">
 
-          <div className="space-y-4 sm:space-y-6 max-w-xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <Card className="p-6 sm:p-8 bg-black/60 backdrop-blur-md hover:bg-black/70 hover:shadow-[0_0_30px_rgba(0,242,234,0.2)] transition-all duration-300 border-2 border-[#00f2ea]/30 text-white">
               <div className="space-y-4 sm:space-y-6">
                 <div className="space-y-2">
@@ -74,7 +74,7 @@ const Home = () => {
               </div>
             </Card>
 
-            <Card className="p-6 sm:p-8 bg-black/60 backdrop-blur-md hover:bg-black/70 hover:shadow-[0_0_30px_rgba(0,242,234,0.2)] transition-all duration-300 border-2 border-[#00f2ea]/30 text-white">
+            <Card className="p-6 sm:p-8 bg-black/60 backdrop-blur-md hover:bg-black/70 hover:shadow-[0_0_30px_rgba(0,242,234,0.2)] transition-all duration-300 border-2 border-[#00f2ea]/30 text-white md:col-span-2 md:w-2/3 md:mx-auto">
               <div className="space-y-4 sm:space-y-6">
                 <div className="space-y-2">
                   <h2 className="text-xl sm:text-2xl font-bold text-foreground">Practice Mode</h2>
