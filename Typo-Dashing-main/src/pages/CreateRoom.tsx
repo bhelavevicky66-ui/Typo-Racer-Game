@@ -129,21 +129,21 @@ const CreateRoom = () => {
             </p>
           </div>
 
-          <Card className="p-4 sm:p-6 md:p-8 bg-card border-2 border-border">
-            <div className="space-y-4 sm:space-y-6">
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                  <Settings className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-                  <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Game Settings</h2>
+          <Card className="p-4 md:p-6 bg-card border-2 border-border overflow-y-auto max-h-[85vh] md:max-h-none">
+            <div className="space-y-4">
+              <div className="space-y-1 text-center md:text-left">
+                <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
+                  <Settings className="w-5 h-5 text-primary" />
+                  <h2 className="text-xl md:text-2xl font-bold text-foreground">Game Settings</h2>
                 </div>
-                <p className="text-sm sm:text-base text-muted-foreground">
+                <p className="text-sm text-muted-foreground">
                   Configure your typing race
                 </p>
               </div>
 
-              <div className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="playerName" className="text-sm sm:text-base">
+                  <Label htmlFor="playerName" className="text-sm">
                     Your Name
                   </Label>
                   <Input
@@ -151,14 +151,14 @@ const CreateRoom = () => {
                     placeholder="Enter your name"
                     value={playerName}
                     onChange={(e) => setPlayerName(e.target.value)}
-                    className="h-10 sm:h-12 text-base sm:text-lg bg-muted border-2"
+                    className="h-9 md:h-10 bg-muted border-2"
                     maxLength={50}
                   />
                 </div>
 
                 {!isSinglePlayer && (
                   <div className="space-y-2">
-                    <Label htmlFor="maxPlayers" className="text-sm sm:text-base">
+                    <Label htmlFor="maxPlayers" className="text-sm">
                       Max Players (2-6)
                     </Label>
                     <Input
@@ -168,71 +168,74 @@ const CreateRoom = () => {
                       max={6}
                       value={maxPlayers}
                       onChange={(e) => setMaxPlayers(Math.min(6, Math.max(2, parseInt(e.target.value) || 2)))}
-                      className="h-10 sm:h-12 text-base sm:text-lg bg-muted border-2"
+                      className="h-9 md:h-10 bg-muted border-2"
                     />
                   </div>
                 )}
+              </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="timer" className="text-sm sm:text-base">
-                    Timer Duration (seconds)
-                  </Label>
-                  <div className="grid grid-cols-3 gap-2">
-                    {[15, 30, 60].map((duration) => (
-                      <Button
-                        key={duration}
-                        variant={timerDuration === duration ? "default" : "outline"}
-                        onClick={() => setTimerDuration(duration)}
-                        className="h-10 sm:h-12 text-base sm:text-lg"
-                      >
-                        {duration}s
-                      </Button>
-                    ))}
-                  </div>
+              <div className="space-y-2">
+                <Label htmlFor="timer" className="text-sm">
+                  Timer Duration (seconds)
+                </Label>
+                <div className="grid grid-cols-3 gap-2">
+                  {[15, 30, 60].map((duration) => (
+                    <Button
+                      key={duration}
+                      variant={timerDuration === duration ? "default" : "outline"}
+                      onClick={() => setTimerDuration(duration)}
+                      className="h-8 md:h-9 text-sm"
+                    >
+                      {duration}s
+                    </Button>
+                  ))}
                 </div>
               </div>
 
-              <div className="space-y-3 sm:space-y-4 border-t border-border pt-3 sm:pt-4">
-                <h3 className="font-semibold text-sm sm:text-base text-foreground">Text Options</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-t border-border pt-4">
+                <div className="space-y-2">
+                  <Label className="text-sm font-semibold">Text Options</Label>
+                  <div className="space-y-2">
+                    <div className="flex items-center space-x-2">
+                      <Checkbox
+                        id="punctuation"
+                        checked={includePunctuation}
+                        onCheckedChange={(checked) => setIncludePunctuation(checked as boolean)}
+                      />
+                      <Label htmlFor="punctuation" className="text-xs cursor-pointer">
+                        Include Punctuation
+                      </Label>
+                    </div>
 
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-2">
-                    <Checkbox
-                      id="punctuation"
-                      checked={includePunctuation}
-                      onCheckedChange={(checked) => setIncludePunctuation(checked as boolean)}
-                    />
-                    <Label htmlFor="punctuation" className="text-xs sm:text-sm cursor-pointer">
-                      Include Punctuation (. , ! ?)
-                    </Label>
-                  </div>
-
-                  <div className="flex items-center space-x-2">
-                    <Checkbox
-                      id="numbers"
-                      checked={includeNumbers}
-                      onCheckedChange={(checked) => setIncludeNumbers(checked as boolean)}
-                    />
-                    <Label htmlFor="numbers" className="text-xs sm:text-sm cursor-pointer">
-                      Include Numbers (0-9)
-                    </Label>
+                    <div className="flex items-center space-x-2">
+                      <Checkbox
+                        id="numbers"
+                        checked={includeNumbers}
+                        onCheckedChange={(checked) => setIncludeNumbers(checked as boolean)}
+                      />
+                      <Label htmlFor="numbers" className="text-xs cursor-pointer">
+                        Include Numbers
+                      </Label>
+                    </div>
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label className="text-sm sm:text-base">Text Difficulty</Label>
-                  <div className="flex gap-2">
-                    {(["easy", "medium", "hard"] as const).map((difficulty) => (
-                      <Button
-                        key={difficulty}
-                        type="button"
-                        variant={textDifficulty === difficulty ? "default" : "outline"}
-                        onClick={() => setTextDifficulty(difficulty)}
-                        className="flex-1 capitalize text-sm sm:text-base"
-                      >
-                        {difficulty}
-                      </Button>
-                    ))}
+                  <Label className="text-sm font-semibold">Difficulty</Label>
+                  <div className="flex flex-col gap-2">
+                    <div className="flex gap-2">
+                      {(["easy", "medium", "hard"] as const).map((difficulty) => (
+                        <Button
+                          key={difficulty}
+                          type="button"
+                          variant={textDifficulty === difficulty ? "default" : "outline"}
+                          onClick={() => setTextDifficulty(difficulty)}
+                          className="flex-1 capitalize h-8 md:h-9 text-xs"
+                        >
+                          {difficulty}
+                        </Button>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -240,7 +243,7 @@ const CreateRoom = () => {
               <Button
                 onClick={handleCreateRoom}
                 disabled={loading || !playerName.trim()}
-                className="w-full h-12 sm:h-14 text-base sm:text-lg font-semibold bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+                className="w-full h-10 md:h-12 text-base font-semibold bg-gradient-to-r from-primary to-secondary hover:opacity-90 mt-2"
                 size="lg"
               >
                 {loading ? "Creating..." : (isSinglePlayer ? "Start Practice" : "Create Room")}
