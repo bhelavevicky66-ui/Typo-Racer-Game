@@ -14,22 +14,24 @@ const GameModes = () => {
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <ThemeToggle />
       <div className="w-full max-w-4xl space-y-6">
-        <Button
-          variant="ghost"
-          onClick={() => navigate("/")}
-          className="mb-4"
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Back
-        </Button>
+        <div className="relative flex items-center justify-center mb-8">
+          <Button
+            variant="ghost"
+            onClick={() => navigate("/")}
+            className="absolute left-0"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back
+          </Button>
 
-        <div className="text-center space-y-2 mb-8">
-          <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            Practice Games
-          </h1>
-          <p className="text-muted-foreground">
-            Choose a game mode to practice your typing skills
-          </p>
+          <div className="text-center space-y-2">
+            <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              Practice Games
+            </h1>
+            <p className="text-muted-foreground">
+              Choose a game mode to practice your typing skills
+            </p>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -45,8 +47,8 @@ const GameModes = () => {
                 Type each word correctly to advance. Perfect for accuracy training!
               </p>
               <div className="pt-4 space-y-3">
-                <Button 
-                  className="w-full" 
+                <Button
+                  className="w-full"
                   size="lg"
                   onClick={() => navigate("/word-practice")}
                 >
@@ -54,8 +56,8 @@ const GameModes = () => {
                 </Button>
                 <div className="space-y-2">
                   <p className="text-sm font-semibold text-center">Multiplayer</p>
-                  <Button 
-                    className="w-full" 
+                  <Button
+                    className="w-full"
                     size="lg"
                     variant="outline"
                     onClick={() => navigate("/word-practice/create")}
@@ -71,7 +73,7 @@ const GameModes = () => {
                       maxLength={6}
                       className="uppercase"
                     />
-                    <Button 
+                    <Button
                       variant="outline"
                       onClick={() => joinCode && navigate(`/word-practice/join/${joinCode}`)}
                       disabled={!joinCode}
@@ -84,7 +86,7 @@ const GameModes = () => {
             </div>
           </Card>
 
-          <Card 
+          <Card
             className="p-8 bg-card border-2 border-border hover:border-primary transition-all cursor-pointer hover:shadow-[var(--shadow-glow)]"
             onClick={() => navigate("/speed-challenge")}
           >
