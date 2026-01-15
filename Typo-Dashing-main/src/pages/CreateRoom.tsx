@@ -111,22 +111,24 @@ const CreateRoom = () => {
     <Layout>
       <div className="flex items-center justify-center p-2 min-h-screen overflow-hidden">
         <div className="w-full max-w-3xl space-y-2">
-          <Button
-            variant="ghost"
-            onClick={() => navigate("/")}
-            className="mb-1 text-base h-10"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back
-          </Button>
+          <div className="relative flex items-center justify-center mb-2">
+            <Button
+              variant="ghost"
+              onClick={() => navigate("/")}
+              className="absolute left-0 text-base h-10"
+            >
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back
+            </Button>
 
-          <div className="text-center space-y-1 mb-2">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              {isSinglePlayer ? "Practice Mode" : "Create Room"}
-            </h1>
-            <p className="text-base sm:text-lg text-muted-foreground px-4">
-              {isSinglePlayer ? "Improve your typing speed" : "Set up your multiplayer game"}
-            </p>
+            <div className="text-center space-y-1">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                {isSinglePlayer ? "Practice Mode" : "Create Room"}
+              </h1>
+              <p className="text-base sm:text-lg text-muted-foreground px-4">
+                {isSinglePlayer ? "Improve your typing speed" : "Set up your multiplayer game"}
+              </p>
+            </div>
           </div>
 
           <Card className="p-4 md:p-5 bg-card border-2 border-border">
