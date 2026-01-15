@@ -36,7 +36,7 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-6xl mx-auto">
-            <Card className="p-5 sm:p-6 bg-black/60 backdrop-blur-md hover:bg-black/70 hover:shadow-[0_0_30px_rgba(0,242,234,0.2)] transition-all duration-300 border-2 border-[#00f2ea]/30 text-white">
+            <Card className="p-5 sm:p-6 bg-card/60 backdrop-blur-md hover:bg-card/80 hover:shadow-[0_0_30px_rgba(0,242,234,0.2)] transition-all duration-300 border-2 border-[#00f2ea]/30 text-foreground">
               <div className="space-y-3 sm:space-y-4">
                 <div className="space-y-1">
                   <h2 className="text-lg sm:text-xl font-bold text-foreground">Create Room</h2>
@@ -55,7 +55,7 @@ const Home = () => {
               </div>
             </Card>
 
-            <Card className="p-5 sm:p-6 bg-black/60 backdrop-blur-md hover:bg-black/70 hover:shadow-[0_0_30px_rgba(0,242,234,0.2)] transition-all duration-300 border-2 border-[#00f2ea]/30 text-white">
+            <Card className="p-5 sm:p-6 bg-card/60 backdrop-blur-md hover:bg-card/80 hover:shadow-[0_0_30px_rgba(0,242,234,0.2)] transition-all duration-300 border-2 border-[#00f2ea]/30 text-foreground">
               <div className="space-y-3 sm:space-y-4">
                 <div className="space-y-1">
                   <h2 className="text-lg sm:text-xl font-bold text-foreground">Join Room</h2>

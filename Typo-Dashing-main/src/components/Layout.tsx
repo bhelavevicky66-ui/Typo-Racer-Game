@@ -7,7 +7,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
     return (
-        <div className="min-h-screen bg-black relative text-foreground">
+        <div className="min-h-screen bg-background relative text-foreground">
             {/* Theme Toggle */}
             <div className="fixed top-4 right-4 z-50">
                 <ThemeToggle />
