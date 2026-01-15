@@ -7,21 +7,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
     return (
-        <div className="min-h-screen bg-background relative overflow-hidden text-foreground">
-            {/* Background Image */}
-            <div
-                className="fixed inset-0 z-0"
-                style={{
-                    backgroundImage: 'url("/hero-banner.png")',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                }}
-            >
-                {/* Dark overlay */}
-                <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
-            </div>
-
+        <div className="min-h-screen bg-black relative overflow-hidden text-foreground">
             {/* Theme Toggle */}
             <div className="fixed top-4 right-4 z-50">
                 <ThemeToggle />

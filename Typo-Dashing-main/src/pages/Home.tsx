@@ -22,10 +22,20 @@ const Home = () => {
 
   return (
     <Layout>
-      <div className="pt-32 pb-8 px-4 flex items-center justify-center min-h-[calc(100vh-60px)]">
+      <div className="pt-48 pb-8 px-4 flex items-center justify-center min-h-[calc(100vh-60px)]">
         <div className="w-full max-w-6xl space-y-6 sm:space-y-8">
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          <div className="flex flex-col items-center justify-center mb-8">
+            <h1 className="text-6xl md:text-8xl font-black tracking-tighter italic select-none">
+              <span className="text-[#00f2ea] drop-shadow-[0_0_10px_rgba(0,242,234,0.5)]">TYPE</span>
+              <span className="text-[#a020f0] drop-shadow-[0_0_10px_rgba(160,32,240,0.5)]">RACER</span>
+            </h1>
+            <p className="text-muted-foreground font-mono tracking-[0.5em] text-xs sm:text-sm mt-2 opacity-70">
+              NEON BLITZ V1.0.4
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
             <Card className="p-6 sm:p-8 bg-black/60 backdrop-blur-md hover:bg-black/70 hover:shadow-[0_0_30px_rgba(0,242,234,0.2)] transition-all duration-300 border-2 border-[#00f2ea]/30 text-white">
               <div className="space-y-4 sm:space-y-6">
                 <div className="space-y-2">
