@@ -110,17 +110,17 @@ const CreateRoom = () => {
   return (
     <Layout>
       <div className="flex items-center justify-center p-4 min-h-screen">
-        <div className="w-full max-w-3xl space-y-6 sm:space-y-8">
+        <div className="w-full max-w-3xl space-y-4 sm:space-y-6">
           <Button
             variant="ghost"
             onClick={() => navigate("/")}
-            className="mb-4 sm:mb-6 text-lg h-12"
+            className="mb-2 sm:mb-4 text-lg h-12"
           >
             <ArrowLeft className="mr-2 h-5 w-5" />
             Back
           </Button>
 
-          <div className="text-center space-y-4 mb-8">
+          <div className="text-center space-y-2 mb-4">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               {isSinglePlayer ? "Practice Mode" : "Create Room"}
             </h1>
@@ -129,10 +129,10 @@ const CreateRoom = () => {
             </p>
           </div>
 
-          <Card className="p-6 md:p-8 bg-card border-2 border-border overflow-y-auto max-h-[90vh] md:max-h-none">
-            <div className="space-y-6 md:space-y-8">
-              <div className="space-y-2 text-center md:text-left">
-                <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
+          <Card className="p-5 md:p-6 bg-card border-2 border-border overflow-y-auto max-h-[90vh] md:max-h-none">
+            <div className="space-y-5 md:space-y-6">
+              <div className="space-y-1 text-center md:text-left">
+                <div className="flex items-center justify-center md:justify-start gap-3 mb-1">
                   <Settings className="w-6 h-6 md:w-8 md:h-8 text-primary" />
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground">Game Settings</h2>
                 </div>
@@ -141,8 +141,8 @@ const CreateRoom = () => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                <div className="space-y-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+                <div className="space-y-2">
                   <Label htmlFor="playerName" className="text-base md:text-lg">
                     Your Name
                   </Label>
@@ -151,13 +151,13 @@ const CreateRoom = () => {
                     placeholder="Enter your name"
                     value={playerName}
                     onChange={(e) => setPlayerName(e.target.value)}
-                    className="h-12 md:h-14 text-lg bg-muted border-2"
+                    className="h-11 md:h-12 text-lg bg-muted border-2"
                     maxLength={50}
                   />
                 </div>
 
                 {!isSinglePlayer && (
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     <Label htmlFor="maxPlayers" className="text-base md:text-lg">
                       Max Players (2-6)
                     </Label>
@@ -168,13 +168,13 @@ const CreateRoom = () => {
                       max={6}
                       value={maxPlayers}
                       onChange={(e) => setMaxPlayers(Math.min(6, Math.max(2, parseInt(e.target.value) || 2)))}
-                      className="h-12 md:h-14 text-lg bg-muted border-2"
+                      className="h-11 md:h-12 text-lg bg-muted border-2"
                     />
                   </div>
                 )}
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-2">
                 <Label htmlFor="timer" className="text-base md:text-lg">
                   Timer Duration (seconds)
                 </Label>
@@ -184,7 +184,7 @@ const CreateRoom = () => {
                       key={duration}
                       variant={timerDuration === duration ? "default" : "outline"}
                       onClick={() => setTimerDuration(duration)}
-                      className="h-12 md:h-14 text-lg"
+                      className="h-11 md:h-12 text-lg"
                     >
                       {duration}s
                     </Button>
@@ -192,10 +192,10 @@ const CreateRoom = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 border-t border-border pt-6 md:pt-8">
-                <div className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 border-t border-border pt-5 md:pt-6">
+                <div className="space-y-3">
                   <Label className="text-lg font-semibold">Text Options</Label>
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     <div className="flex items-center space-x-3">
                       <Checkbox
                         id="punctuation"
@@ -222,7 +222,7 @@ const CreateRoom = () => {
                   </div>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-3">
                   <Label className="text-lg font-semibold">Difficulty</Label>
                   <div className="flex flex-col gap-3">
                     <div className="flex gap-4">
@@ -245,7 +245,7 @@ const CreateRoom = () => {
               <Button
                 onClick={handleCreateRoom}
                 disabled={loading || !playerName.trim()}
-                className="w-full h-14 md:h-16 text-xl font-bold bg-gradient-to-r from-primary to-secondary hover:opacity-90 mt-4 shadow-lg hover:shadow-xl transition-all"
+                className="w-full h-12 md:h-14 text-xl font-bold bg-gradient-to-r from-primary to-secondary hover:opacity-90 mt-2 shadow-lg hover:shadow-xl transition-all"
                 size="lg"
               >
                 {loading ? "Creating..." : (isSinglePlayer ? "Start Practice" : "Create Room")}
